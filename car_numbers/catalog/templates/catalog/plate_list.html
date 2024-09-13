@@ -1,0 +1,6 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <a class="button" href="{% url 'region-list' %}">Управление регионами</a>
+    {% include 'plate_list_generic.html' %}
+{% endblock %}

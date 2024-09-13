@@ -1,0 +1,11 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <form method="GET" action="" class="form">
+        {% include 'form_snippet.html' with search=True %}
+        <input class="button" type="submit" value="Поиск">
+    </form>
+    {% if object_list %}
+        {% include 'plate_list_generic.html' %}
+    {% endif %}
+{% endblock %}

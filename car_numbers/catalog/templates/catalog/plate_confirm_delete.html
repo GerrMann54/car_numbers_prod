@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <p>Удалить номер?</p>
+    {% include 'plate_object_generic.html' %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input class="button" type="submit" value="Подтвердить" />
+    </form>
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        {% if not title %}
+            <title>Номера - каталог</title>
+        {% else %}
+            <title>{{ title }}</title>
+        {% endif %}
+    {% endblock %}
+
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/font.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css %}
+    {% endblock %}
+</head>
+<body class="body">
+    {% if user.is_authenticated %}
+        <header class="main-menu">
+            <a class="main-menu_item" href="{% url 'add-plate' %}">
+                <div class="main-menu_item__text">Новый</div>
+            </a>
+            <a class="main-menu_item" href="{% url 'all' %}">
+                <div class="main-menu_item__text">Все</div>
+            </a>
+            <a class="main-menu_item" href="{% url 'index' %}">
+                <div class="main-menu_item__text">Поиск</div>
+            </a>
+        </header>
+    {% endif %}
+    <main class="container">
+        {% block content %}
+
+        {% endblock %}
+
+        {% block pagination %}
+            {% if is_paginated %}
+                <div class="pagination">
+                    <div class="pagination_page-links">
+                        <div class="pagination_page-links__link-container">
+                            {% if page_obj.has_previous %}
+                                <a class="pagination_page-links__link-container__link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}"><strong>Назад</strong></a>
+                            {% endif %}
+                        </div>
+                        <div class="pagination_page-links__num-page">
+                            {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+                        </div>
+                        <div class="pagination_page-links__link-container">
+                            {% if page_obj.has_next %}
+                                <a class="pagination_page-links__link-container__link" href="{{ request.path }}?page={{ page_obj.next_page_number }}"><strong>Далее</strong></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endblock %}
+    </main>
+</body>
+</html>

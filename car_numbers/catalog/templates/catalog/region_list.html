@@ -1,0 +1,8 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <a class="button" href="{% url 'add-region' %}">Добавить регион</a>
+    {% for region in object_list %}
+        <p><a class="a" href="{% url 'edit-region' region.id %}">Изм.   </a>{{ region }}</p>
+    {% endfor %}
+{% endblock %}

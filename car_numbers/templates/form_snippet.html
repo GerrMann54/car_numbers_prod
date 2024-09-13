@@ -1,0 +1,19 @@
+{% block form %}
+
+    {% if not search %}
+        {% csrf_token %}
+    {% endif %}
+
+    {% for field in form %}
+        <div class="form_field-block">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if not search %}
+                {{ field.errors }}
+            {% endif %}
+        </div>
+    {% endfor %}
+    {% for err in form.non_field_errors  %}
+        <p class="p_secondary">{{ err }}</p>
+    {% endfor %} 
+{% endblock %}

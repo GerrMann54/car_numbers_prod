@@ -1,0 +1,12 @@
+{% block plate_list %}
+    <section class="plate-list">
+        {% for plate in object_list %}
+            <a href="{% url 'detail' plate.id %}" class="plate-list_item">
+                {% include 'plate_object_generic.html' %}
+                {% if plate.car %}
+                    <p class="plate-list_item__car">{{ plate.car }}</p>
+                {% endif %}
+            </a>
+        {% endfor %}
+    </section>
+{% endblock %}

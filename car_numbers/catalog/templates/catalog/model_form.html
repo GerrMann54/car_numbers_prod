@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>{{title}}</h2>
+    <form method="POST" action="" class="form">
+        {% include 'form_snippet.html' %}
+        <input class="button" type="submit" value="Принять">
+        {% if request.GET.success_add %}
+            <p class="p_secondary_small">Предыдущий номер был успешно добавлен</p>
+        {% endif %}
+    </form>
+{% endblock %}

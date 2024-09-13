@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Fira Sans";
+    src: url("/static/fonts/fira-sans.regular.ttf");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-weight: bold;
+    src: url("/static/fonts/fira-sans.bold.ttf");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    src: url("/static/fonts/fira-sans.italic.ttf");
+}

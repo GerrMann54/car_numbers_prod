@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <form method="POST" action="" class="form">
+        {% include 'form_snippet.html' %}
+        <input class="button" type="submit" value="Войти">
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+{% endblock %}

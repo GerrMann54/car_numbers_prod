@@ -1,0 +1,32 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>Информация о номере</h2>
+    {% include 'plate_object_generic.html' %}
+    <a class="button" href="{% url 'edit-plate' plate.id %}">Изменить</a>
+    <div>
+        {% if plate.owner %}
+            <p>Владелец:</p>
+            <p><strong>{{ plate.owner }}</strong></p>
+        {% else %}
+            <p>Владелец не указан.</p>
+        {% endif %}
+    </div>
+    <div>
+        {% if plate.car %}
+            <p>Автомобиль:</p>
+            <p><strong>{{ plate.car }}</strong></p>
+        {% else %}
+            <p>Автомобиль не указан.</p>
+        {% endif %}
+    </div>
+    <div>
+        {% if plate.notes %}
+            <p>Примечания:</p>
+            <p>{{ plate.notes }}</p>
+        {% else %}
+            <p>Примечаний нет.</p>
+        {% endif %}
+    </div>
+    <a class="a" href="{% url 'delete-plate' plate.id %}">Удалить</a>
+{% endblock %}
